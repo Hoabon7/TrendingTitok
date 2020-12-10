@@ -23,15 +23,11 @@ class myController extends Controller
         
     }
     public function getVideo(Request $request){
-        // $listVideo=listvideo::all();
-        // return $listVideo;
-
-        $listVideo = DB::table('listvideos')
-        ->select('url','thumbnail','id')
-        ->distinct()
-        ->orderByRaw('created_at DESC')
-        ->paginate(20);
-       
+        
+        $listVideo = listvideo::select('thumbnail','url')
+                ->distinct()
+                ->get();
+ 
         return $listVideo;
         
     }

@@ -10,7 +10,7 @@ class listvideo extends Model
     use HasFactory;
     protected $table="listvideos";
     protected $fillable = [
-        'url'
+        'url','thumbnail'
     ];
 
 }
