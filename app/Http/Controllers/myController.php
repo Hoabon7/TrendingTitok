@@ -12,8 +12,10 @@ class myController extends Controller
        
         $input = $request->all();
         $url=$input['url'];
+        $thumbnail=$input['thumbnail'];
         $listVideo=new listvideo;
         $listVideo->url=$url;
+        $listVideo->thumbnail=$thumbnail;
         $listVideo->save();
         return response()->json([
             "message" => "thanh công "
@@ -25,7 +27,8 @@ class myController extends Controller
         // return $listVideo;
 
         $listVideo = DB::table('listvideos')
-        ->select('url','id')
+        ->select('url','thumbnail','id')
+        ->distinct()
         ->orderByRaw('created_at DESC')
         ->paginate(20);
        

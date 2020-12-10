@@ -16,6 +16,7 @@ class CreateListvideosTable extends Migration
         Schema::create('listvideos', function (Blueprint $table) {
             $table->id();
             $table->text('url');
+            $table->text('thumbnail');
             $table->timestamps();
         });
     }
