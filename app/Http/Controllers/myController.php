@@ -27,8 +27,9 @@ class myController extends Controller
         $listVideo = listvideo::select('thumbnail','url')
                 ->distinct()
                 ->paginate(20);
- 
-        return $listVideo;
+                return response($listVideo, 200)
+                ->header('Content-Type', 'text/plain');
+        
         
     }
    
