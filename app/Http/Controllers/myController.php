@@ -26,7 +26,7 @@ class myController extends Controller
         
         $listVideo = listvideo::select('thumbnail','url')
                 ->distinct()
-                ->get();
+                ->paginate(20);
  
         return $listVideo;
         
