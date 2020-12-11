@@ -26,11 +26,10 @@ class myController extends Controller
         
         $listVideo = listvideo::select('thumbnail','url')
                 ->distinct()
+                ->orderByDesc('created_at')
                 ->paginate(20);
                 return response($listVideo, 200)
                 ->header('Content-Type', 'text/plain');
-        
-        
     }
    
 }
