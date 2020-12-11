@@ -24,9 +24,11 @@ class myController extends Controller
     }
     public function getVideo(Request $request){
         
-        $listVideo = listvideo::select('thumbnail','url')
-                ->distinct()
+        $listVideo = DB::table('listvideos')
+                
                 ->orderBy('created_at','desc')
+                ->distinct()
+                ->select('thumbnail','url')
                 ->paginate(20);
                 return response($listVideo, 200)
                 ->header('Content-Type', 'text/plain');
