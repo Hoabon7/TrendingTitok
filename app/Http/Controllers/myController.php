@@ -26,7 +26,7 @@ class myController extends Controller
         
         $listVideo = listvideo::select('thumbnail','url')
                 ->distinct()
-                ->orderByDesc('created_at')
+                ->orderBy('created_at','desc')
                 ->paginate(20);
                 return response($listVideo, 200)
                 ->header('Content-Type', 'text/plain');
