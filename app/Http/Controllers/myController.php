@@ -23,15 +23,22 @@ class myController extends Controller
         
     }
     public function getVideo(Request $request){
-        
+        DB::statement("SET SQL_MODE=''");
         $listVideo = DB::table('listvideos')
-                
                 ->orderBy('created_at','desc')
                 ->distinct()
                 ->select('thumbnail','url')
                 ->paginate(20);
                 return response($listVideo, 200)
                 ->header('Content-Type', 'text/plain');
+    }
+
+    public function getVideoRaw(){
+        // $data=DB::raw("SELECT DISTINCT thumbnail
+        // FROM listvideos
+       
+        // ORDER BY created_at");
+        //  var_dump($data);
     }
    
 }

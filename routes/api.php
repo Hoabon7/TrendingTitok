@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::post('putVideo',[myController::class,'putVideo']);
 Route::get('getVideo',[myController::class,'getVideo']);
+Route::get('getVideoRaw',[myController::class,'getVideoRaw']);
